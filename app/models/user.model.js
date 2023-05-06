@@ -1,17 +1,19 @@
-module.exports = mongoose => {
-    var schema = mongoose.Schema(
-        {
-            title: String,
-        },
-        { timestamps: true }
-    );
-    schema.method("toJSON", function() {
-        const { __v, _id, ...object } = this.toObject();
-        object.id = _id;
-        return object;
-    });
+import mongoose from 'mongoose';
+const {Schema} = mongoose;
 
-    const User = mongoose.model("user", schema);
+const userSchema = new Schema({
+        name: String,
+        user_id: BigInt(),
+        password: String,
+        email: String,
+        phone_no: String
+    },
+    {
+        discriminatorKey: 'userType',
+        methods: {
+        }
+    }
+);
 
-    return User;
-};
+const User = mongoose.model("User", userSchema);
+module.exports = User;
