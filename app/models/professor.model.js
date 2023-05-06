@@ -4,18 +4,15 @@ import User from './user.model';
 const options = { discriminatorKey: 'userType' };
 
 const {Schema} = mongoose;
-const Student = User.discriminator('Student',
+const Professor = User.discriminator('Professor',
     new mongoose.Schema(
         {
-            degree: String,
-            entry_year: Number,
-            entry_term: Number,
-            gpa: Number,
             department: String,
-            major: String
+            major: String,
+            rank: String
         },
         options
     )
 );
 
-module.exports = Student;
+module.exports = Professor;
