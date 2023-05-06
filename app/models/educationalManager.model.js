@@ -1,16 +1,12 @@
-import mongoose from 'mongoose';
-import User from './user.model';
-
-const options = { discriminatorKey: 'userType' };
-
-const {Schema} = mongoose;
-const EducationalManager = User.discriminator('EducationalManager',
-    new mongoose.Schema(
-        {
-            department: String
-        },
-        options
-    )
-);
-
-module.exports = EducationalManager;
+module.exports = (mongoose,User) => {
+    const options = { discriminatorKey: 'userType' };
+    const EducationalManager = User.discriminator('EducationalManager',
+        new mongoose.Schema(
+            {
+                department: String
+            },
+            options
+        )
+    );
+    return EducationalManager;
+};
