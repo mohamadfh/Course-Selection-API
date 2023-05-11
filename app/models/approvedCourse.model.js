@@ -1,7 +1,7 @@
 module.exports = (mongoose) => {
     const courseSchema = new mongoose.Schema({
             name: String,
-            unit_No: Number,
+            unit_no: Number,
             prerequisites: [
                 {
                     type: mongoose.Schema.Types.ObjectId,
