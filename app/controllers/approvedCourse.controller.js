@@ -3,7 +3,7 @@ const ApprovedCourse = db.approvedCourse;
 
 exports.create = (req, res) => {
 
-    if (!req.body.name && !req.body.unit_no && !req.body.prerequisites && !req.body.corequisite) {
+    if (!req.body.name || !req.body.unit_no || !req.body.prerequisites || !req.body.corequisite) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
@@ -29,8 +29,9 @@ exports.create = (req, res) => {
 
 
 exports.findAll = (req, res) => {
+    const majorquery = req.query.major;
 
-    ApprovedCourse.find()
+    ApprovedCourse.find({ major : majorquery }).populate('prerequisites').populate('corequisite')
         .then(data => {
             res.send(data);
         })
@@ -45,7 +46,7 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    ApprovedCourse.findById(id)
+    ApprovedCourse.findById(id).populate('prerequisites').populate('corequisite')
         .then(data => {
             if (!data)
                 res.status(404).send({ message: "Not found document with id " + id });

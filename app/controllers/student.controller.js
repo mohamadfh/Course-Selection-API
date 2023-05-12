@@ -3,12 +3,11 @@ const Student = db.student;
 
 exports.create = (req, res) => {
 
-    if (!req.body.department && !req.body.gpa && !req.body.entry_term && !req.body.degree
-        && !req.body.major && !req.body.entry_year && !req.body.name
-        && !req.body.user_id && !req.body.password && !req.body.email && !req.body.phone_no) {
-        res.status(400).send({ message: "Content can not be empty!" });
+    if (!req.body.user_id || !req.body.password) {
+        res.status(400).send({ message: "user_id and password fields cant be empty" });
         return;
     }
+
 
     const student = new Student({
         department : req.body.department,
@@ -38,7 +37,10 @@ exports.create = (req, res) => {
 
 
 exports.findAll = (req, res) => {
-
+    if (req.user.userType !== 'ITManager' && req.user.userType !== 'EducationalManager') {
+        res.status(403).send({message: "Require Manager Role"})
+        return;
+    }
     Student.find()
         .then(data => {
             res.send(data);
@@ -75,6 +77,10 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id;
+    if (req.user.id !== id || req.user.userType !== 'Student') {
+        res.status(403).send({message: "not authorized to do this"})
+        return;
+    }
 
     Student.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {

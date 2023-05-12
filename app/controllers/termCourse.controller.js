@@ -3,12 +3,12 @@ const TermCourse = db.termCourse;
 
 exports.create = (req, res) => {
 
-    if (!req.body.name && !req.body.unit_no && !req.body.prerequisites && !req.body.corequisite
-        && !req.body.class_time && !req.body.exam_time && !req.body.exam_location && !req.body.professor && !req.body.capacity && !req.body.term
-    ) {
-        res.status(400).send({ message: "Content can not be empty!" });
-        return;
-    }
+    // if (!req.body.name || !req.body.unit_no || !req.body.prerequisites || !req.body.corequisite
+    //     || !req.body.class_time || !req.body.exam_time && !req.body.exam_location || !req.body.professor || !req.body.capacity || !req.body.term
+    // ) {
+    //     res.status(400).send({ message: "Content can not be empty!" });
+    //     return;
+    // }
 
     const termCourse = new TermCourse({
         name : req.body.name,
@@ -37,8 +37,9 @@ exports.create = (req, res) => {
 
 
 exports.findAll = (req, res) => {
+    const majorquery = req.query.major;
 
-    TermCourse.find()
+    TermCourse.find({ major : majorquery }).populate('prerequisites').populate('corequisite').populate('professor')
         .then(data => {
             res.send(data);
         })
@@ -53,7 +54,7 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    TermCourse.findById(id)
+    TermCourse.findById(id).populate('professor').populate('prerequisites').populate('corequisite')
         .then(data => {
             if (!data)
                 res.status(404).send({ message: "Not found document with id " + id });

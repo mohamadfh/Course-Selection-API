@@ -3,10 +3,11 @@ const EducationalManager = db.educationalManager;
 
 exports.create = (req, res) => {
 
-    if (!req.body.department && !req.body.user_id && !req.body.password && !req.body.email && !req.body.phone_no) {
-        res.status(400).send({ message: "Content can not be empty!" });
+    if (!req.body.user_id || !req.body.password) {
+        res.status(400).send({ message: "user_id and password fields cant be empty" });
         return;
     }
+    console.log("WAS HERE")
 
     const educationalManager = new EducationalManager({
         department : req.body.department,
@@ -32,7 +33,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 
-    EducationalManager.find()
+    EducationalManager.find().populate('prerequisites').populate('corequisite')
         .then(data => {
             res.send(data);
         })
@@ -47,7 +48,7 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    EducationalManager.findById(id)
+    EducationalManager.findById(id).populate('prerequisites').populate('corequisite')
         .then(data => {
             if (!data)
                 res.status(404).send({ message: "Not found document with id " + id });
