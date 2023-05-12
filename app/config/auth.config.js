@@ -1,3 +1,3 @@
 module.exports = {
-    secret: "hw2-secret-key"
+    secret: process.env.JWT_ACCESS_SECRET
 };

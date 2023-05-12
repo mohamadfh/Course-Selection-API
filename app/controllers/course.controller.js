@@ -13,7 +13,7 @@ exports.create = (req, res) => {
         approvedCourses.create(req,res);
         return;
     }else {
-        res.status(400).send({ message: "course_type can not be empty!" });
+        res.status(400).send({ message: "courseType Field can not be empty!" });
     }
 };
 
@@ -26,7 +26,7 @@ exports.findAll = (req, res) => {
         approvedCourses.findAll(req,res);
         return;
     }else {
-        res.status(400).send({ message: "course_type can not be empty!" });
+        res.status(400).send({ message: "courseType can not be empty!" });
     }
 };
 

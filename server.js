@@ -34,6 +34,10 @@ db.mongoose
 //require("./app/routes/user.routes.js")(app);
 require("./app/routes/auth.routes.js")(app);
 require("./app/routes/ITmanager.routes.js")(app);
+require("./app/routes/professor.routes")(app);
+require("./app/routes/student.routes")(app);
+require("./app/routes/course.routes")(app);
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
