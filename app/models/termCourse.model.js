@@ -3,8 +3,8 @@ module.exports = (mongoose,ApprovedCourse) => {
     const TermCourse = ApprovedCourse.discriminator('TermCourse',
         new mongoose.Schema(
             {
-                class_time: Date,
-                exam_time: Date,
+                class_time: String,
+                exam_time: String,
                 exam_location: String,
                 professor: {
                     type: mongoose.Schema.Types.ObjectId,

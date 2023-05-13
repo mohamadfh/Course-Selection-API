@@ -5,7 +5,6 @@ const User = db.user;
 
 
 exports.signin = (req, res) => {
-    console.log(User)
     User.findOne({
         user_id: req.body.user_id
 
