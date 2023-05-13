@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const db = {};
 db.mongoose = mongoose;
-db.url = dbConfig.url;
+db.url = dbConfig.uri;
 db.user = require("./user.model.js")(mongoose);
 db.student = require("./student.model.js")(mongoose,db.user);
 db.professor = require("./professor.model.js")(mongoose,db.user);

@@ -73,7 +73,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id;
-    if (req.user.id !== id || req.user.userType !== 'Professor') {
+    if ((req.user.id !== id || req.user.userType !== 'Professor' )&& req.user.userType !== 'ITManager') {
         res.status(403).send({message: "not authorized to do this"})
         return;
     }

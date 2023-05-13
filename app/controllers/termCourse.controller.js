@@ -20,7 +20,9 @@ exports.create = (req, res) => {
         exam_location: req.body.exam_location,
         professor: req.body.professor,
         capacity: req.body.capacity,
-        term: req.body.term
+        term: req.body.term,
+        major : req.body.major
+
     });
     termCourse
         .save(termCourse)
@@ -38,8 +40,11 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     const majorquery = req.query.major;
-
-    TermCourse.find({ major : majorquery }).populate('prerequisites').populate('corequisite').populate('professor')
+    const filters = {}
+    if (majorquery) {
+        filters.major = majorquery
+    }
+    TermCourse.find(filters).populate('prerequisites').populate('corequisite').populate('professor')
         .then(data => {
             res.send(data);
         })

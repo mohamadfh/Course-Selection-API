@@ -2,7 +2,10 @@ module.exports = mongoose => {
     const options = { discriminatorKey: 'userType' };
     const userSchema = new mongoose.Schema({
             name: String,
-            user_id: String,
+            user_id: {
+                type: String,
+                unique: true,
+            },
             password: String,
             email: String,
             phone_no: String

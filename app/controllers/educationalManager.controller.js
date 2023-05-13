@@ -7,7 +7,6 @@ exports.create = (req, res) => {
         res.status(400).send({ message: "user_id and password fields cant be empty" });
         return;
     }
-    console.log("WAS HERE")
 
     const educationalManager = new EducationalManager({
         department : req.body.department,
@@ -33,7 +32,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 
-    EducationalManager.find().populate('prerequisites').populate('corequisite')
+    EducationalManager.find()
         .then(data => {
             res.send(data);
         })
@@ -48,7 +47,7 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    EducationalManager.findById(id).populate('prerequisites').populate('corequisite')
+    EducationalManager.findById(id)
         .then(data => {
             if (!data)
                 res.status(404).send({ message: "Not found document with id " + id });

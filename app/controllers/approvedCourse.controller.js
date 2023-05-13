@@ -3,7 +3,7 @@ const ApprovedCourse = db.approvedCourse;
 
 exports.create = (req, res) => {
 
-    if (!req.body.name || !req.body.unit_no || !req.body.prerequisites || !req.body.corequisite) {
+    if (!req.body.name || !req.body.unit_no) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
@@ -12,7 +12,8 @@ exports.create = (req, res) => {
         name : req.body.name,
         prerequisites : req.body.prerequisites,
         corequisite : req.body.corequisite,
-        unit_no : req.body.unit_no
+        unit_no : req.body.unit_no,
+        major : req.body.major
     });
     approvedCourse
         .save(approvedCourse)
@@ -30,8 +31,11 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     const majorquery = req.query.major;
-
-    ApprovedCourse.find({ major : majorquery }).populate('prerequisites').populate('corequisite')
+    const filters = {}
+    if (majorquery) {
+        filters.major = majorquery
+    }
+    ApprovedCourse.find(filters).populate('prerequisites').populate('corequisite')
         .then(data => {
             res.send(data);
         })
@@ -46,6 +50,7 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
     const id = req.params.id;
+
     ApprovedCourse.findById(id).populate('prerequisites').populate('corequisite')
         .then(data => {
             if (!data)

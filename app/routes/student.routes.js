@@ -1,5 +1,6 @@
 
 const { authJwt } = require("../middlewares");
+const students = require("../controllers/student.controller");
 
 module.exports = app => {
     const users = require("../controllers/user.controller.js");
@@ -11,6 +12,7 @@ module.exports = app => {
 
     router.get("/student/:id" ,[authJwt.verifyToken], students.findOne);
     router.get("/students" ,[authJwt.verifyToken], students.findAll);
+    router.put("/student/:id" ,[authJwt.verifyToken], students.update);
 
     app.use('/',router);
 };
