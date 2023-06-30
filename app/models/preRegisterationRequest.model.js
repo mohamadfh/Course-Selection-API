@@ -4,10 +4,10 @@ module.exports = (mongoose) => {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Student'
             },
-            course: {
+            courses: [{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'TermCourse'
-            },
+            }],
         },
     );
     const PreRegisterationRequest = mongoose.model("PreRegisterationRequest", PreRegisterationRequestSchema);

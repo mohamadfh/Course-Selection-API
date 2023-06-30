@@ -17,7 +17,7 @@ module.exports = (mongoose) => {
             ]
         },
         {
-            discriminatorKey: 'userType',
+            discriminatorKey: 'courseType',
         }
     );
     const ApprovedCourse = mongoose.model("ApprovedCourse", courseSchema);

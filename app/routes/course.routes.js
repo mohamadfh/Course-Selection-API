@@ -1,6 +1,6 @@
 const { authJwt } = require("../middlewares");
 const courses = require("../controllers/course.controller");
-
+const termcourses = require("../controllers/termCourse.controller")
 module.exports = app => {
     const users = require("../controllers/user.controller.js");
     const professors = require("../controllers/professor.controller.js");
@@ -15,6 +15,7 @@ module.exports = app => {
     router.delete("/course/:id" ,[authJwt.verifyToken], courses.delete);
     router.get("/course/:id" ,[authJwt.verifyToken], courses.findOne);
     router.get("/courses" ,[authJwt.verifyToken], courses.findAll);
+    router.get("/course/:id/preregistrationrequests" ,[authJwt.verifyToken], termcourses.findPreRegisterationRequests);
 
     app.use('/',router);
 };

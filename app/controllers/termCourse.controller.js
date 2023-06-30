@@ -1,6 +1,6 @@
 const db = require("../models");
 const TermCourse = db.termCourse;
-
+const PreRegisterationRequests = db.preRegisterationRequests
 exports.create = (req, res) => {
 
     // if (!req.body.name || !req.body.unit_no || !req.body.prerequisites || !req.body.corequisite
@@ -112,3 +112,50 @@ exports.delete = (req, res) => {
             });
         });
 };
+
+exports.findPreRegisterationRequests = (req, res) => {
+    const id = req.params.id;
+    let requests = []
+    PreRegisterationRequests.find()
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found document with id " + id });
+            else{
+                for(const req of data) {
+                    if (req.courses.includes(id)){
+                        requests.push(req)
+                    }
+                }
+                res.status(200).send(requests);
+            }
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving document with id=" + id });
+        });
+};
+
+exports.findRegisterationRequests = (req, res) => {
+    const id = req.params.id;
+    let requests = []
+    RegisterationRequests.find()
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found document with id " + id });
+            else{
+                for(const req of data) {
+                    if (req.courses.includes(id)){
+                        requests.push(req)
+                    }
+                }
+                res.status(200).send(requests);
+            }
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving document with id=" + id });
+        });
+};
+
