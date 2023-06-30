@@ -3,9 +3,10 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 
-dotenv.config();
 
-var corsOptions = {
+require('dotenv').config()
+
+let corsOptions = {
     origin: "http://localhost:8081"
 };
 
@@ -35,10 +36,13 @@ db.mongoose
 
 //require("./app/routes/user.routes.js")(app);
 require("./app/routes/auth.routes.js")(app);
+require("./app/routes/term.routes.js")(app);
+
 require("./app/routes/ITmanager.routes.js")(app);
 require("./app/routes/professor.routes")(app);
 require("./app/routes/student.routes")(app);
 require("./app/routes/course.routes")(app);
+
 
 
 app.listen(PORT, () => {

@@ -13,4 +13,7 @@ db.ITManager = require("./ITManager.model.js")(mongoose,db.user)
 db.educationalManager = require("./educationalManager.model.js")(mongoose,db.user)
 db.approvedCourse = require("./approvedCourse.model.js")(mongoose)
 db.termCourse = require("./termCourse.model.js")(mongoose,db.approvedCourse)
+db.term = require('./term.model')(mongoose)
+db.preRegisterationRequests = require('./preRegisterationRequest.model')(mongoose)
+db.registerationRequests = require('./registerationRequest.model')(mongoose)
 module.exports = db;

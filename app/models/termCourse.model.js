@@ -11,7 +11,10 @@ module.exports = (mongoose,ApprovedCourse) => {
                     ref: 'Professor'
                 },
                 capacity: Number,
-                term: String
+                term: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'Term'
+                }
             },
             options
         )
