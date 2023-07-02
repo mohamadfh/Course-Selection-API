@@ -75,3 +75,51 @@
     margin: 0;
   }
   
+  /* ----------------------------------------- */
+
+  .course-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .course-card {
+    border: 1px solid #f3f3f3;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+  /* Additional styles for the course card */
+  .course-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .course-card p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .course-card a {
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  .course-list {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f3f3f3;
+  }
+  
+  .course-list h1 {
+    font-size: 2rem;
+  }
+  
+  .course-list hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
