@@ -38,7 +38,7 @@ const ListOfSemestersPage = () => {
       <div className="content-container">
         <div className="side-bar">
           <ul>
-            <li>LIST</li>
+            <Link to="/prof-sems">مشاهده لیست ترم ها</Link>
           </ul>
         </div>
         <div className="semester-list">
@@ -47,7 +47,7 @@ const ListOfSemestersPage = () => {
           {semesters_sample.map((semester) => (
             <Link
               // to={`/semester/${semester.id}`} // todo: paths should be updated
-              to={"/prof-courses"}
+              to={"/prof-sem-courses"}
               key={semester.id}
               className="semester-card"
             >

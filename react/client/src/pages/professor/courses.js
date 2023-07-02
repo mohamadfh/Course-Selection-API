@@ -41,7 +41,8 @@ const CourseList = () => {
           <hr />
           <div className="course-tiles">
             {courses_sample.map((course) => (
-              <Link to={`/courses/${course.id}`} key={course.id}>
+              //   <Link to={`/courses/${course.id}`} key={course.id}>
+              <Link to={"/prof-course-students"}>
                 <div className="course-card">
                   <h2>{course.name}</h2>
                   <p>

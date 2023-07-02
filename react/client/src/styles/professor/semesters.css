@@ -75,7 +75,7 @@
     margin: 0;
   }
   
-  /* ----------------------------------------- */
+  /* ----------------------------------------- courses */
 
   .course-tiles {
     display: grid;
@@ -122,4 +122,65 @@
   .course-list hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  /* ---------------------------------------- students */
+  .students-container {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .students-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .student-card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .student-card h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+
+.student-card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .approve-button,
+  .reject-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+  }
+  
+  .approve-button {
+    background-color: green;
+    color: white;
+  }
+  
+  .reject-button {
+    background-color: red;
+    color: white;
   }
