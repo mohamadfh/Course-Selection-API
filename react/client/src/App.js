@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import ProfSems from "./pages/professor/semesters";
 import ProfCourses from "./pages/professor/courses";
 import ProfCourseStudents from "./pages/professor/students.js";
+import StuHome from "./pages/student/Home";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/prof-sems" element={<ProfSems />} />
         <Route path="/prof-sem-courses" element={<ProfCourses />} />
         <Route path="/prof-course-students" element={<ProfCourseStudents />} />
+        <Route path="/stu-home" element={<StuHome />} />
+
         {/* Add more routes here */}
       </Routes>
     </Router>
