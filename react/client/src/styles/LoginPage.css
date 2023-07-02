@@ -42,8 +42,7 @@ button {
   border: none;
   cursor: pointer;
 }
-
-/* New styles for the right half of the screen */
+ /* for the colored half */
 .login-container::before {
   content: '';
   flex: 1;
