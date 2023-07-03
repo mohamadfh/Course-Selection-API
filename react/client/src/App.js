@@ -13,6 +13,7 @@ import PAssignments from "./pages/student/PreAssignments";
 import AssignmentCourses from "./pages/student/AssignmentCourses";
 import Assignments from "./pages/student/Assignments";
 import EduSems from "./pages/educationalManager/semesters";
+import EduSemEdit from "./pages/educationalManager/sem-edit";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/assignment-courses" element={<AssignmentCourses />} />
         <Route path="/assignments" element={<Assignments />} />
         <Route path="/edu-sems" element={<EduSems />} />
+        <Route path="/edu-sem-edit" element={<EduSemEdit />} />
       </Routes>
     </Router>
   );

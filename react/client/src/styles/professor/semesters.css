@@ -213,3 +213,18 @@
     justify-content: center;
     align-items: center;
   }
+
+  /* -------------------------------- */
+  .edu-sem-edit-main{
+    align-items: center;
+    justify-content: center;
+  }
+
+  .edu-butt{
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .height{
+    height: 30px;
+  }
