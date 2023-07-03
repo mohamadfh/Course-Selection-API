@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PACourseCard from "./PACourseCard";
+import PACourseCard from "../../components/PACourseCard";
 import "./../../styles/professor/semesters.css";
 
 const PreAssCourses = () => {

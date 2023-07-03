@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import StudentCard from "./StudentCard";
+import StudentCard from "../../components/StudentCard";
 import "./../../styles/professor/semesters.css";
 
 const StudentsInCourse = () => {

@@ -12,6 +12,7 @@ import PACourses from "./pages/student/preAssignmentCourses";
 import PAssignments from "./pages/student/PreAssignments";
 import AssignmentCourses from "./pages/student/AssignmentCourses";
 import Assignments from "./pages/student/Assignments";
+import EduSems from "./pages/educationalManager/semesters";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/pre-assignments" element={<PAssignments />} />
         <Route path="/assignment-courses" element={<AssignmentCourses />} />
         <Route path="/assignments" element={<Assignments />} />
+        <Route path="/edu-sems" element={<EduSems />} />
       </Routes>
     </Router>
   );
