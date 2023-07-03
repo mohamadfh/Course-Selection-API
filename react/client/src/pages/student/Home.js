@@ -34,7 +34,7 @@ const Page = () => {
               {semesters.map((semester) => (
                 <Link
                   // to={`/semester/${semester.id}`} // todo: paths should be updated
-                  to={"/prof-sem-courses"} /// todo
+                  to={"/stu-sem-details"} /// todo
                   key={semester.id}
                   className="semester-card"
                 >

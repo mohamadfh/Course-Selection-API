@@ -7,6 +7,7 @@ import ProfCourses from "./pages/professor/courses";
 import ProfCourseStudents from "./pages/professor/students.js";
 import StuHome from "./pages/student/Home";
 import StuSems from "./pages/student/Semesters";
+import SemDetails from "./pages/student/SemDetails";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/prof-course-students" element={<ProfCourseStudents />} />
         <Route path="/stu-home" element={<StuHome />} />
         <Route path="/stu-sems" element={<StuSems />} />
+        <Route path="/stu-sem-details" element={<SemDetails />} />
 
         {/* Add more routes here */}
       </Routes>
