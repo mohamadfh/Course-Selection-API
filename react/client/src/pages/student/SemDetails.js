@@ -17,20 +17,20 @@ const SemesterDetails = () => {
           </ul>
         </div>
         <div className="det-container">
-          <Link to={"/page1"}>
+          <Link to={"/pre-assignments"}>
             <div className="square">مشاهده پیش ثبت نام ها</div>
           </Link>
-          <Link to={"/page2"}>
+          <Link to={"/pre-assignment-courses"}>
             <div className="square">
               ممشاهده لیست دروس ارائه شده برای پیش ثبت نام
             </div>
           </Link>
-          <Link to={"/page3"}>
+          <Link to={"/assignment-courses"}>
             <div className="square">
               مشاهده لیست دروس ارائه شده برای ثبت نام
             </div>
           </Link>
-          <Link to={"/page4"}>
+          <Link to={"/assignments"}>
             <div className="square">مشاهده درس های ثبت نام شده</div>
           </Link>
         </div>

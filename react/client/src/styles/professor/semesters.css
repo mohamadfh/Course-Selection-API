@@ -200,6 +200,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    margin-left: 20%;
   }
   
   .square {
@@ -208,4 +209,7 @@
     border-radius: 10%;
     background-color: grey;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

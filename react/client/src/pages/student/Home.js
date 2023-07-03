@@ -48,7 +48,7 @@ const Page = () => {
             <div className="stu-card-container">
               {courses.map((course) => (
                 //   <Link to={`/courses/${course.id}`} key={course.id}>
-                <Link to={"/prof-course-students"}>
+                <Link to={"/stu-home"}>
                   <div className="stu-course-card">
                     <h2>{course.name}</h2>
                     <p>

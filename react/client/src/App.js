@@ -8,6 +8,10 @@ import ProfCourseStudents from "./pages/professor/students.js";
 import StuHome from "./pages/student/Home";
 import StuSems from "./pages/student/Semesters";
 import SemDetails from "./pages/student/SemDetails";
+import PACourses from "./pages/student/preAssignmentCourses";
+import PAssignments from "./pages/student/PreAssignments";
+import AssignmentCourses from "./pages/student/AssignmentCourses";
+import Assignments from "./pages/student/Assignments";
 
 function App() {
   return (
@@ -20,8 +24,10 @@ function App() {
         <Route path="/stu-home" element={<StuHome />} />
         <Route path="/stu-sems" element={<StuSems />} />
         <Route path="/stu-sem-details" element={<SemDetails />} />
-
-        {/* Add more routes here */}
+        <Route path="/pre-assignment-courses" element={<PACourses />} />
+        <Route path="/pre-assignments" element={<PAssignments />} />
+        <Route path="/assignment-courses" element={<AssignmentCourses />} />
+        <Route path="/assignments" element={<Assignments />} />
       </Routes>
     </Router>
   );
